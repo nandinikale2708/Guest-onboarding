@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Guest</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Edit Guest</h1>
+    <form action="/guestAdmin/edit/<%= guest._id %>" method="POST">
+        <input type="hidden" name="hotelId" value="<%= guest.hotelId %>">
+        <label for="fullName">Full Name:</label><br>
+        <input type="text" id="fullName" name="fullName

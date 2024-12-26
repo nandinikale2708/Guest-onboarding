@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guest Information</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1><%= hotel.name %></h1>
+    <img src="<%= hotel.logo %>" alt="Hotel Logo" width="100" class="logo">
+    <p><%= hotel.address %></p>
+    <% if (locals.errors) { %>
+        <% errors.forEach(error => { %>
+            <p class="error"><%= error.msg %></p>
+        <% }); %>
+    <% } %>
+    <form action="/guest/submit-form" method="POST">
+        <input type="hidden" name="hotelId" value="<%= hotel._id %>">
+        <label for="fullName">Full Name:</label><br>
+        <input type="text" id="fullName" name="fullName" value="<%= locals.fullName ? fullName: '' %>" required><br><br>
+
+        <label for="mobileNumber">Mobile Number:</label><br>
+        <input type="tel" id="mobileNumber" name="mobileNumber" value="<%= locals.mobileNumber ? mobileNumber: '' %>" required><br><br>
+
+        <label for="address">Address:</label><br>
+        <textarea id="address" name="address" required><%= locals.address ? address: '' %></textarea><br><br>
+
+        <label for="purposeOfVisit">Purpose of Visit:</label><br>
+        <select id="purposeOfVisit" name="purposeOfVisit">
+            <option value="Business" <%= locals.purposeOfVisit === 'Business' ? 'selected' : '' %>>Business</option>
+            <option value="Personal" <%= locals.purposeOfVisit === 'Personal' ? 'selected' : '' %>>Personal</option>
+            <option value="Tourist" <%= locals.purposeOfVisit === 'Tourist' ? 'selected' : '' %>>Tourist</option>
+        </select><br><br>
+
+        <label for="stayFrom">Stay From:</label><br>
+        <input type="date" id="stayFrom" name="stayFrom" value="<%= locals.stayFrom ? stayFrom.toISOString().split('T')[0] : '' %>" required><br><br>
+
+        <label for="stayTo">Stay To:</label><br>
+        <input type="date" id="stayTo" name="stayTo" value="<%= locals.stayTo ? stayTo.toISOString().split('T')[0] : '' %>" required><br><br>
+
+        <label for="email">Email ID:</label><br>
+        <input type="email" id="email" name="email" value="<%= locals.email ? email: '' %>"><br><br>
+
+        <label for="idProofNumber">ID Proof Number:</label><br>
+        <input type="text" id="idProofNumber" name="idProofNumber" value="<%= locals.idProofNumber ? idProofNumber: '' %>" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

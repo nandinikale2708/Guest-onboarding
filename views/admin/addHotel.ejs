@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Hotel</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h1>Add New Hotel</h1>
+    <form action="/admin/add-hotel" method="POST" enctype="multipart/form-data">
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" name="name" required /><br /><br />
+
+      <label for="address">Address:</label><br />
+      <textarea id="address" name="address" required></textarea><br /><br />
+
+      <label for="logo">Logo:</label><br />
+      <input
+        type="file"
+        id="logo"
+        name="logo"
+        accept="image/*"
+        required
+      /><br /><br />
+
+      <button type="submit">Add Hotel</button>
+    </form>
+  </body>
+</html>

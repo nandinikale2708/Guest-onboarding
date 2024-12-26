@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Guest</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h1>Guest Details</h1>
+    <p><strong>Full Name:</strong> <%= guest.fullName %></p>
+    <p><strong>Mobile Number:</strong> <%= guest.mobileNumber %></p>
+    <p><strong>Address:</strong> <%= guest.address %></p>
+    <p><strong>Purpose of Visit:</strong> <%= guest.purposeOfVisit %></p>
+    <p>
+      <strong>Stay From:</strong> <%= guest.stayFrom.toLocaleDateString() %>
+    </p>
+    <p><strong>Stay To:</strong> <%= guest.stayTo.toLocaleDateString() %></p>
+    <p><strong>Email:</strong> <%= guest.email ? guest.email : 'N/A' %></p>
+    <p><strong>ID Proof Number:</strong> <%= guest.idProofNumber %></p>
+    <p><strong>Hotel:</strong> <%= guest.hotelId.name %></p>
+    <button onclick="window.print()">Print</button>
+    <a href="/guestAdmin/guests/<%= guest.hotelId._id %>">Back to Guest List</a>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hotels</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h1>Registered Hotels</h1>
+    <a href="/admin/add-hotel">Add New Hotel</a>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Logo</th>
+          <th>QR Code</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% hotels.forEach(hotel => { %>
+        <tr>
+          <td><%= hotel.name %></td>
+          <td><%= hotel.address %></td>
+          <td>
+            <img
+              src="<%= hotel.logo %>"
+              alt="Hotel Logo"
+              width="50"
+              class="logo"
+            />
+          </td>
+          <td><img src="<%= hotel.qrCode %>" alt="QR Code" width="50" /></td>
+          <td>
+            <a href="/guestAdmin/guests/<%= hotel._id %>">View Guests</a>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </body>
+</html>

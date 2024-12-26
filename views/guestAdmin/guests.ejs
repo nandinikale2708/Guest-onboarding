@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Guest Details</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h1>Guest Details for <%= hotel.name %></h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Mobile Number</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% guests.forEach(guest => { %>
+        <tr>
+          <td><%= guest.fullName %></td>
+          <td><%= guest.mobileNumber %></td>
+          <td>
+            <a href="/guestAdmin/view/<%= guest._id %>">View</a>
+            <a href="/guestAdmin/edit/<%= guest._id %>">Edit</a>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <a href="/admin/hotels">Back to Hotels</a>
+  </body>
+</html>
